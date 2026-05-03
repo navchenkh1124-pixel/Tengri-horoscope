@@ -114,9 +114,9 @@ async function callClaude(prompt: string, system?: string, maxTokens = 1100) {
     messages: [{ role: 'user', content: prompt }]
   }
   if (system) body.system = system
-  const r = await fetch('https://api.anthropic.com/v1/messages', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+const r = await fetch('/api/claude', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(body)
   })
   const d = await r.json()
