@@ -131,10 +131,11 @@ function useStars(canvasRef: React.RefObject<HTMLCanvasElement | null>) {
     const ctx = canvas.getContext('2d')!
     let stars: {x:number;y:number;r:number;a:number;s:number;p:number}[] = []
     let W = 0, H = 0, animId = 0, t = 0
+    const cvs = canvas
 
     function resize() {
-      W = canvas.width = window.innerWidth
-      H = canvas.height = window.innerHeight
+      W = cvs.width = window.innerWidth
+      H = cvs.height = window.innerHeight
     }
     function init() {
       stars = []
